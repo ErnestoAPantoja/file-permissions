@@ -10,7 +10,6 @@ This lab focuses on file permissions and shares in the context of an Active Dire
 - Microsoft Azure (Virtual Machines/Compute)
 - Remote Desktop
 - Active Directory Domain Services
-- PowerShell
 
 <h2>Operating Systems Used </h2>
 
@@ -35,7 +34,7 @@ Domain Admins have Read/Write access to the no-access folder.
 <img src="https://i.imgur.com/kWrpLFE.png" height="80%" width="80%" alt="Permissions Steps"/>
 </p>
 <p>
-On the client VM, navigate to the shared folders throught the following path in File Explorer: \\dc-1. Notice how some folders cannot allow you to add files, but only view them. One does not allow access at all. This is because as a Domain User, permissions for the folder are tied to the respective Security Group and the folder's own set permissions for users within that Security Group.
+On the client VM, navigate to the shared folders through the following path in File Explorer: \\dc-1. Notice how some folders cannot allow you to add files, but only view them. One does not allow access at all. This is because as a Domain User, permissions for the folder are tied to the respective Security Group and the folder's own set permissions for users within that Security Group.
 </p>
 <br />
 
@@ -53,8 +52,9 @@ Next, we will make a new Security Group and assign appropriate permissions to th
 <img src="https://i.imgur.com/SHotVB2.png" height="80%" width="80%" alt="Permissions Steps"/>
 </p>
 <p>
-The user cannot access the accounting folder because they are not part of the ACCOUNTANTS Security Group. Log off the client so that the permissions can be in place by the time the client is logged into again. On the domain controller, open the ACCOUNTANTS Properties on Active Directory Users and Computers. In the Members tab, add the respective user. In my case, it is bon.rovej. Upon logging into the client, bon.rovej is now able to open the accounting folder because they are part of ACCOUNTANTS.
+The user cannot access the accounting folder because they are not part of the ACCOUNTANTS Security Group. Log off the client so that the permissions are in place by the time the client is logged into again. On the domain controller, open the ACCOUNTANTS Properties on Active Directory Users and Computers. In the Members tab, add the respective user. In my case, it is bon.rovej. Upon logging into the client, bon.rovej is now able to open the accounting folder because they are part of ACCOUNTANTS.
 <br />
 
 <h2>Lessons Learned </h2>
+
 This lab made me understand how file permissions work in the context of Windows/Active Directory. In a real setting, I might have to set permissions so that people can only access what they need to in order to complete their work. It is not necessary to give more permissions than what is needed.
